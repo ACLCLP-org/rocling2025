@@ -1141,13 +1141,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: background-color ease-in-out 0.3s;
 }
 
-#schedule .chair {
+/* #schedule .chair {
   display: ;
 }
 
 #schedule .papers {
   display: ;
-}
+} */
 
 #schedule .detailed-programs ul li {
   margin-bottom: 15px;
@@ -1694,7 +1694,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-bottom: 1px solid #e0e5fa;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.5);
-  height: 160px;
+  height: 200px;
 }
 
 #sponsors .sponsor-logo:hover img {
@@ -2104,7 +2104,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
   #intro .intro-container {
     top: 0px;
-    //height: 120vh
+    /* height: 120vh */
   }
   #intro h1 {
     font-size: 32px;
@@ -2124,7 +2124,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     transition: all 0.5s;
   }
   #intro  {
-    //height: 140vh
+    /* height: 140vh */
   }
   
 
@@ -2174,7 +2174,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   width: 95%
   }
   #intro  {
-    //height: 160vh
+    /* height: 160vh */
   }
 }
 
@@ -2183,7 +2183,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 24px;
   }
   #intro {
-    //height: 170vh
+    /* height: 170vh */
   }
   #intro  {
     height: 180vh
