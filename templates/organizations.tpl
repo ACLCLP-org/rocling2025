@@ -41,6 +41,20 @@
       </div>
     {{~}}
   </div>
+  <h3>Co-Organized by</h3>
+  <div class="organized row">
+    {{~it.CoOrganizers :org}}
+      <div class="col-md-10 col-lg-10 py-4">
+        <div class="organizedBy_image">
+          {{?org.link}}<a href="{{=org.link}}" target="_blank">{{?}}
+            <img src="{{=org.logo}}">
+          {{?org.link}}</a>{{?}}
+          {{?org.name}}<br>{{=org.name}}{{?}}
+        </div>
+      </div>
+    {{~}}
+  </div>
+  
   <br><br>
 </div>
 
