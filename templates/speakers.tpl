@@ -1,6 +1,6 @@
 <div class="container wow fadeInUp">
     <div class="section-header">
-        <h2>Tutorial</h2>
+        <h2 id="tutorial-section">Tutorial</h2>
     </div>
     <h3 class="sub-heading"></h3>
 
@@ -35,7 +35,7 @@
 
     <!-- Speakers introduction Section -->
     {{~it.Keynote :introduction:index}}
-    <div class="row mb-4 introduction-item">
+    <div class="row mb-4 introduction-item" id="{{=introduction.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}}">
         <div class="col-md-2">
             {{?introduction.img}}
             <div class="speaker">

@@ -30,7 +30,10 @@
         {{~period.sessions :session:index2}}
           <div class="col-md-{{=period.sessions.length > 1 ? Math.floor(12 / period.sessions.length) : 12}} {{?index2 !== 0 && period.sessions.length > 1}}border-left{{?}}">
             
-            <h4>{{=session.title}} {{?session.location}}<br><span>{{=session.location}}</span> {{?}}</h4>
+            <h4>{{=session.title}} {{?session.location}}<br><span>{{=session.location}}</span>{{?}}</h4>
+            {{?session.link}}
+              <p><a href="#{{=session.link}}" class="btn btn-sm btn-primary">View Contents</a></p>
+            {{?}}
             {{?session.speaker}}
               <h7>Speaker: <a href="{{=session.speaker.link}}">{{=session.speaker.name}}</a>{{?session.speaker.affiliation}}, {{=session.speaker.affiliation}}{{?}}</h7><br/>
             {{?}}

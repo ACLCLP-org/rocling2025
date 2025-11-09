@@ -9,6 +9,10 @@
 # General
 --------------------------------------------------------------*/
 
+html {
+  scroll-padding-top: 100px; /* Height of fixed header + some padding */
+}
+
 body {
   background: #fff;
   color: #2f3138;
@@ -1700,6 +1704,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 #sponsors .sponsor-logo:hover img {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
+}
+
+/*--------------------------------------------------------------
+# Accepted Papers Section
+--------------------------------------------------------------*/
+
+#ac-papers h5 {
+  scroll-margin-top: 100px;
 }
 
 /*--------------------------------------------------------------
