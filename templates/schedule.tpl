@@ -1,7 +1,7 @@
 
       <div class="container wow fadeInUp">
         <div class="section-header">
-          <h2>Programs (TBA)</h2>
+          <h2>Programs</h2>
           <!--<p>Humanities and Social Sciences Building (HSSB) of Academia Sinica</p>-->
         </div>
         <h3 class="sub-heading"></h3>
@@ -26,42 +26,43 @@
       <div class="col-md-2"><time>{{=period.time}}</time></div>
 
       <div class="col-md-10">
-      {{~period.sessions :session:index2}}
+        <div class="row">
+        {{~period.sessions :session:index2}}
+          <div class="col-md-{{=period.sessions.length > 1 ? Math.floor(12 / period.sessions.length) : 12}} {{?index2 !== 0 && period.sessions.length > 1}}border-left{{?}}">
+            
+            <h4>{{=session.title}} {{?session.location}}<br><span>{{=session.location}}</span> {{?}}</h4>
+            {{?session.speaker}}
+              <h7>Speaker: <a href="{{=session.speaker.link}}">{{=session.speaker.name}}</a>{{?session.speaker.affiliation}}, {{=session.speaker.affiliation}}{{?}}</h7><br/>
+            {{?}}
+            {{?session.chair}}
+              <h7 class="chair">Chair: {{=session.chair}}</h7>
+            {{?}}
+            {{?session.image}}
+            <div class="mt-2">
+              <div class="speaker">
+                <img src="{{=session.image}}" alt="{{=session.speaker.name}}">
+              </div>
+            {{?}}
+            {{?session.subject}}
+              <p>Subject: {{=session.subject}}</p>
+            {{?}}
+            {{?session.image}}</div>{{?}}
 
-	{{?index2!==0}}
-		<hr>
-	{{?}}
-
-
-        <h4>{{=session.title}} <span>{{=session.location}}</span></h4>
-        {{?session.speaker}}
-          <h7>Speaker: <a href="{{=session.speaker.link}}">{{=session.speaker.name}}</a>{{?session.speaker.affiliation}}, {{=session.speaker.affiliation}}{{?}}</h7><br/>
-        {{?}}
-        {{?session.chair}}
-          <h7 class="chair">Chair: {{=session.chair}}</h7>
-        {{?}}
-        {{?session.image}}
-        <div class="mt-2">
-          <div class="speaker">
-            <img src="{{=session.image}}" alt="{{=session.speaker.name}}">
+            {{?session.talks}}
+            <ul>
+              {{~session.talks :talk}}
+                <li class="text-muted">
+                  <span class="title">{{=talk.title}}</span>
+                  {{?session.talks.author}}
+                  <br/><span class="author">{{=talk.author}}</span>
+                  {{?}}
+                </li>
+              {{~}}
+            </ul>
+            {{?}}
           </div>
-        {{?}}
-        {{?session.subject}}
-          <p>Subject: {{=session.subject}}</p>
-        {{?}}
-        {{?session.image}}</div>{{?}}
-
-        {{?session.talks}}
-        <ul>
-          {{~session.talks :talk}}
-            <li class="text-muted">
-              <span class="title">{{=talk.title}}</span><br/>
-              <span class="author">{{=talk.author}}</span>
-            </li>
-          {{~}}
-        </ul>
-        {{?}}
         {{~}}
+        </div>
       </div>
     </div>
     {{~}}

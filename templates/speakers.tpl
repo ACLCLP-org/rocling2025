@@ -51,7 +51,12 @@
             {{?introduction.speaker.name}}
             <h5>Speaker: <a href="{{=introduction.speaker.link}}">{{=introduction.speaker.name}}</a>{{?introduction.speaker.affiliation}}, {{=introduction.speaker.affiliation}}{{?}}</h5>
             {{?}}
-            <p class="introduction-desc">{{=introduction.description}}</p>
+            {{?introduction.abstract}}
+            <p class="introduction-desc"><br><b>Abstract: </b>{{=introduction.abstract}}</p>
+            {{?}}
+            {{?introduction.description}}
+            <p class="introduction-desc"><br><b>Bio: </b>{{=introduction.description}}</p>
+            {{?}}
         </div>
     </div>
     {{~}}
