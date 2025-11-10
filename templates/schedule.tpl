@@ -26,15 +26,18 @@
       <div class="col-md-2"><time>{{=period.time}}</time></div>
 
       <div class="col-md-10">
-        <div class="row">
         {{~period.sessions :session:index2}}
-          <div class="col-md-{{=period.sessions.length > 1 ? Math.floor(12 / period.sessions.length) : 12}} {{?index2 !== 0 && period.sessions.length > 1}}border-left{{?}}">
-            
+          {{?index2 !== 0}}
+            <hr>
+          {{?}}
+          
+          <div>
             <h4>
-              {{?session.link}}
-                <a href="#{{=session.link}}">{{=session.title}}</a>
-              {{??}}
-                {{=session.title}}
+              {{=session.title}}
+              {{?session.talks}}
+                <a data-toggle="collapse" href="#collapse-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}" role="button" aria-expanded="false" class="float-right collapse-toggle">
+                  <i class="fa fa-chevron-down"></i>
+                </a>
               {{?}}
               {{?session.location}}<br><span>{{=session.location}}</span>{{?}}
             </h4>
@@ -55,21 +58,30 @@
             {{?}}
             {{?session.image}}</div>{{?}}
 
-            {{?session.talks}}
+            {{?session.note}}
             <ul>
-              {{~session.talks :talk}}
-                <li class="text-muted">
-                  <span class="title">{{=talk.title}}</span>
-                  {{?session.talks.author}}
-                  <br/><span class="author">{{=talk.author}}</span>
-                  {{?}}
-                </li>
+              {{~session.note :noteItem}}
+                <li class="text-muted">{{=noteItem}}</li>
               {{~}}
             </ul>
             {{?}}
+            
+            {{?session.talks}}
+            <div class="collapse" id="collapse-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}">
+              <ul>
+                {{~session.talks :talk}}
+                  <li class="text-muted">
+                    <span class="title">{{=talk.title}}</span>
+                    {{?talk.author}}
+                    <br/><span class="author">{{=talk.author}}</span>
+                    {{?}}
+                  </li>
+                {{~}}
+              </ul>
+            </div>
+            {{?}}
           </div>
         {{~}}
-        </div>
       </div>
     </div>
     {{~}}
