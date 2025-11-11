@@ -15,11 +15,19 @@
                 <h3>{{=section.title}}</h3>
                 
                 {{~section.category :cat}}
-                  <h4>{{=cat.name}}</h4>
+                  <h4>
+                    {{=cat.name}}
+                    {{?cat.time}}<br><small class="text-muted">Time: {{=cat.time}}</small>{{?}}
+                    {{?cat.location}}<br><small class="text-muted">Location: {{=cat.location}}</small>{{?}}
+                  </h4>
                   
                   {{~cat.session :sess}}
                     <div id="{{=(cat.name + '-' + sess.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}}">
-                      <h5>{{=sess.name}}</h5>
+                      <h5>
+                        {{=sess.name}}
+                        {{?sess.time}}<br><small class="text-muted">Time: {{=sess.time}}</small>{{?}}
+                        {{?sess.location}}<br><small class="text-muted">Location: {{=sess.location}}</small>{{?}}
+                      </h5>
                       
                       <!--<h5>{{?sess.name.includes('Session:')}}<mark>{{=sess.name}}</mark>{{??}}{{=sess.name}}{{?}}</h5>-->
 

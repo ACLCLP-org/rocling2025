@@ -43,7 +43,7 @@
                   <i class="fa fa-chevron-down"></i>
                 </a>
               {{?}}
-              {{?session.location}}<br><span>{{=session.location}}</span>{{?}}
+              {{?session.location}}<span>Location: {{=session.location}}</span>{{?}}
             </h4>
             {{?session.speaker}}
               <h7>Speaker: <a href="{{=session.speaker.link}}">{{=session.speaker.name}}</a>{{?session.speaker.affiliation}}, {{=session.speaker.affiliation}}{{?}}</h7><br/>
@@ -51,16 +51,44 @@
             {{?session.chair}}
               <h7 class="chair">Chair: {{=session.chair}}</h7>
             {{?}}
-            {{?session.image}}
-            <div class="mt-2">
-              <div class="speaker">
-                <img src="{{=session.image}}" alt="{{=session.speaker.name}}">
+            
+            {{?session.image || session.subject || (session.speaker && session.speaker.bio) || session.abstract}}
+            <a data-toggle="collapse" href="#details-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}" role="button" aria-expanded="false" class="collapse-toggle">
+              <i class="fa fa-chevron-down"></i> Show Details
+            </a>
+            
+            <div class="collapse" id="details-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}">
+              <div class="row mt-2">
+                {{?session.image}}
+                <div class="col-auto">
+                  <div class="speaker">
+                    <img src="{{=session.image}}">
+                  </div>
+                </div>
+                {{?}}
+
+                <div class="col">
+                {{?session.subject}}
+                  <p><b>Subject:</b> {{=session.subject}}</p>
+                {{?}}
+                {{?session.abstract}}
+                  <p><b>Abstract:</b> 
+                  {{?Array.isArray(session.abstract)}}
+                    {{~session.abstract :item:itemIndex}}
+                      {{=item}}{{?itemIndex !== session.abstract.length - 1}}<br>{{?}}
+                    {{~}}
+                  {{??}}
+                    {{=session.abstract}}
+                  {{?}}
+                  </p>
+                {{?}}
+                {{?session.speaker.bio}}
+                  <p><b>Bio:</b> {{=session.speaker.bio}}</p>
+                {{?}}
+                </div>
               </div>
+            </div>
             {{?}}
-            {{?session.subject}}
-              <p>Subject: {{=session.subject}}</p>
-            {{?}}
-            {{?session.image}}</div>{{?}}
 
             {{?session.note}}
             <ul>
