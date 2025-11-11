@@ -33,7 +33,11 @@
           
           <div>
             <h4>
-              {{=session.title}}
+              {{?session.link}}
+                <a href="#{{=session.link}}">{{=session.title}}</a>
+              {{??}}
+                {{=session.title}}
+              {{?}}
               {{?session.talks}}
                 <a data-toggle="collapse" href="#collapse-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}" role="button" aria-expanded="false" class="float-right collapse-toggle">
                   <i class="fa fa-chevron-down"></i>

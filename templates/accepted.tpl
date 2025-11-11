@@ -21,6 +21,8 @@
                     <div id="{{=(cat.name + '-' + sess.name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}}">
                       <h5>{{=sess.name}}</h5>
                       
+                      <!--<h5>{{?sess.name.includes('Session:')}}<mark>{{=sess.name}}</mark>{{??}}{{=sess.name}}{{?}}</h5>-->
+
                       {{?sess.papers}}
                         <ul>
                           {{~sess.papers :paper}}
