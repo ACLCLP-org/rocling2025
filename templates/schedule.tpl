@@ -1,7 +1,7 @@
 
       <div class="container wow fadeInUp">
         <div class="section-header">
-          <h2>Programs (TBA)</h2>
+          <h2>Programs</h2>
           <!--<p>Humanities and Social Sciences Building (HSSB) of Academia Sinica</p>-->
         </div>
         <h3 class="sub-heading"></h3>
@@ -26,41 +26,93 @@
       <div class="col-md-2"><time>{{=period.time}}</time></div>
 
       <div class="col-md-10">
-      {{~period.sessions :session:index2}}
+        {{~period.sessions :session:index2}}
+          {{?index2 !== 0}}
+            <hr>
+          {{?}}
+          
+          <div>
+            <h4>
+              {{?session.link}}
+                <a href="#{{=session.link}}">{{=session.title}}</a>
+              {{??}}
+                {{=session.title}}
+              {{?}}
+              {{?session.talks}}
+                <a data-toggle="collapse" href="#collapse-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}" role="button" aria-expanded="false" class="float-right collapse-toggle">
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+              {{?}}
+              {{?session.location}}<span>Location: {{=session.location}}</span>{{?}}
+            </h4>
+            {{?session.speaker}}
+              <h7>Speaker: <a href="{{=session.speaker.link}}">{{=session.speaker.name}}</a>{{?session.speaker.affiliation}}, {{=session.speaker.affiliation}}{{?}}</h7><br/>
+            {{?}}
+            {{?session.chair}}
+              <h7 class="chair">Chair: {{=session.chair}}</h7>
+            {{?}}
+            
+            {{?session.image || session.subject || (session.speaker && session.speaker.bio) || session.abstract}}
+            <a data-toggle="collapse" href="#details-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}" role="button" aria-expanded="false" class="collapse-toggle">
+              <i class="fa fa-chevron-down"></i> Show Details
+            </a>
+            
+            <div class="collapse" id="details-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}">
+              <div class="row mt-2">
+                {{?session.image}}
+                <div class="col-auto">
+                  <div class="speaker">
+                    <img src="{{=session.image}}">
+                  </div>
+                </div>
+                {{?}}
 
-	{{?index2!==0}}
-		<hr>
-	{{?}}
+                <div class="col">
+                {{?session.subject}}
+                  <p><b>Subject:</b> {{=session.subject}}</p>
+                {{?}}
+                {{?session.abstract}}
+                  <p><b>Abstract:</b> 
+                  {{?Array.isArray(session.abstract)}}
+                    {{~session.abstract :item:itemIndex}}
+                      {{=item}}{{?itemIndex !== session.abstract.length - 1}}<br>{{?}}
+                    {{~}}
+                  {{??}}
+                    {{=session.abstract}}
+                  {{?}}
+                  </p>
+                {{?}}
+                {{?session.speaker.bio}}
+                  <p><b>Bio:</b> {{=session.speaker.bio}}</p>
+                {{?}}
+                </div>
+              </div>
+            </div>
+            {{?}}
 
-
-        <h4>{{=session.title}} <span>{{=session.location}}</span></h4>
-        {{?session.speaker}}
-          <h7>Speaker: <a href="{{=session.speaker.link}}">{{=session.speaker.name}}</a>{{?session.speaker.affiliation}}, {{=session.speaker.affiliation}}{{?}}</h7><br/>
-        {{?}}
-        {{?session.chair}}
-          <h7 class="chair">Chair: {{=session.chair}}</h7>
-        {{?}}
-        {{?session.image}}
-        <div class="mt-2">
-          <div class="speaker">
-            <img src="{{=session.image}}" alt="{{=session.speaker.name}}">
+            {{?session.note}}
+            <ul>
+              {{~session.note :noteItem}}
+                <li class="text-muted">{{=noteItem}}</li>
+              {{~}}
+            </ul>
+            {{?}}
+            
+            {{?session.talks}}
+            <div class="collapse" id="collapse-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}">
+              <ul>
+                {{~session.talks :talk}}
+                  <li class="text-muted">
+                    <span class="title">{{=talk.title}}</span>
+                    {{?talk.author}}
+                    <br/><span class="author">{{=talk.author}}</span>
+                    {{?}}
+                  </li>
+                {{~}}
+              </ul>
+            </div>
+            {{?}}
           </div>
-        {{?}}
-        {{?session.subject}}
-          <p>Subject: {{=session.subject}}</p>
-        {{?}}
-        {{?session.image}}</div>{{?}}
-
-        {{?session.talks}}
-        <ul>
-          {{~session.talks :talk}}
-            <li class="text-muted">
-              <span class="title">{{=talk.title}}</span><br/>
-              <span class="author">{{=talk.author}}</span>
-            </li>
-          {{~}}
-        </ul>
-        {{?}}
         {{~}}
       </div>
     </div>

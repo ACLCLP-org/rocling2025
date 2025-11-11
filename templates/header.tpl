@@ -11,7 +11,8 @@
           <!-- <li><a href="#photo">Photo</a></li> -->
           <li><a href="#call">Call for Papers</a></li>
           <li><a href="#speakers">Programs</a></li>
-          <li><a href="https://tinyurl.com/rocling2025">Proceedings</a></li>
+          <li><a href="#ac-papers">Accepted Papers</a></li>
+          <li><a href="https://rocling2025.aclclp.org.tw/">Proceedings</a></li>
           <li><a href="#buy-registrations">Registration</a></li>
           <li><a href="#organization">Organization</a></li>
           <li><a href="#venue">Venue</a></li>
