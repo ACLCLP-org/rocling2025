@@ -28,7 +28,7 @@
     <br><br>
   {{~}}
 
-  <h3>Organized by</h3>
+  <h3>Organizers</h3>
   <div class="organized row">
     {{~it.organizers :org}}
       <div class="col-md-10 col-lg-10 py-4">
@@ -41,7 +41,7 @@
       </div>
     {{~}}
   </div>
-  <h3>Co-Organized by</h3>
+  <h3>Co-Organizers</h3>
   <div class="organized row">
     {{~it.CoOrganizers :org}}
       <div class="col-md-10 col-lg-10 py-4">
