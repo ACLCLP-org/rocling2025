@@ -110,7 +110,7 @@
                 <ul>
                   <li><a href="https://sites.google.com/view/persuasivelanguageintheageofai/">Persuasive Language in the Age of AI</a></li>
                   <li><a href="https://rocling-sigai.github.io/task2025/">Chinese Dimensional Sentiment Analysis for Medical Self-Reflection Texts</a></li>
-                  <li><a href="https://rocling-sigai.github.io/task2025/">Formosa Speech Recognition Challenge 2025 - Hakka ASR II</a></li>
+                  <li><a href="https://sites.google.com/nycu.edu.tw/fsw/home/challenge-2025">Formosa Speech Recognition Challenge 2025 - Hakka ASR II</a></li>
                 </ul>
               </div>
             </div>
