@@ -23,7 +23,7 @@
                 </ul>
                 <hr>
                 <div class="text-center">
-                  <button type="button" class="btn" onclick="window.open('https://conference.iis.sinica.edu.tw/surl/rocling2025/reg','_blank')">Register here</button>
+                  <button type="button" class="btn" onclick="window.open('https://conference.iis.sinica.edu.tw/surl/rocling2025/reg','_blank')" disabled>Register here</button>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
                 </ul>
                 <hr>
                 <div class="text-center">
-                  <button type="button" class="btn" onclick="window.open('https://conference.iis.sinica.edu.tw/surl/rocling2025/reg','_blank')">Register here</button>
+                  <button type="button" class="btn" onclick="window.open('https://conference.iis.sinica.edu.tw/surl/rocling2025/reg','_blank')" disabled>Register here</button>
                 </div>
               </div>
             </div>
