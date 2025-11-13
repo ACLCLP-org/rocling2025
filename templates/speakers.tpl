@@ -9,6 +9,11 @@
     {{?introduction.title}}
     <div class="row mb-4 introduction-item">
         <div class="col-md-2">
+          {{?introduction.img}}
+            <div class="speaker">
+            <img src="{{=introduction.img}}" alt="Speaker">
+            </div>
+          {{?}}
         </div>
         <div class="col-md-10">
             <h4>
@@ -36,12 +41,9 @@
 
     <!-- Speaker Bio -->
     {{~it.Tutorial :introduction:index}}
-    {{?introduction.img && introduction.description && !introduction.title}}
+    {{?introduction.description}}
     <div class="row mb-4 introduction-item">
         <div class="col-md-2">
-            <div class="speaker">
-            <img src="{{=introduction.img}}" alt="Speaker">
-            </div>
         </div>
         <div class="col-md-10">
             <p class="introduction-desc"><b>Speaker Bio: </b>{{=introduction.description}}</p>
