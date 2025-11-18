@@ -51,6 +51,9 @@
             {{?session.chair}}
               <h7 class="chair">Chair: {{=session.chair}}</h7>
             {{?}}
+            {{?session.Panelists}}
+              <br><h7>Panelists: {{=session.Panelists}}</h7><br>
+            {{?}}
             
             {{?session.image || session.subject || (session.speaker && session.speaker.bio) || session.abstract}}
             <a data-toggle="collapse" href="#details-{{=index}}-{{=period.time.replace(/[^0-9]/g, '')}}-{{=index2}}" role="button" aria-expanded="false" class="collapse-toggle">
@@ -75,14 +78,14 @@
                   <p><b>Abstract:</b> 
                   {{?Array.isArray(session.abstract)}}
                     {{~session.abstract :item:itemIndex}}
-                      {{=item}}{{?itemIndex !== session.abstract.length - 1}}<br>{{?}}
+                      {{=item}}{{?itemIndex !== session.abstract.length - 1}}<br><br>{{?}}
                     {{~}}
                   {{??}}
                     {{=session.abstract}}
                   {{?}}
                   </p>
                 {{?}}
-                {{?session.speaker.bio}}
+                {{?session.speaker && session.speaker.bio}}
                   <p><b>Bio:</b> {{=session.speaker.bio}}</p>
                 {{?}}
                 </div>
